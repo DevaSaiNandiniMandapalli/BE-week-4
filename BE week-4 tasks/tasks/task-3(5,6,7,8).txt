@@ -1,0 +1,10 @@
+SELECT * FROM Employees;
+
+
+SELECT * FROM Orders;
+
+
+SELECT FirstName, LastName FROM Employees;
+
+
+SELECT OrderID, Amount FROM Orders;

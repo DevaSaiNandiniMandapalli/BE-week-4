@@ -1,0 +1,10 @@
+SELECT e.FirstName, e.LastName, o.Amount
+FROM Employees e
+INNER JOIN Orders o ON e.EmployeeID = o.CustomerID;
+
+
+
+
+SELECT e.FirstName, e.LastName, o.Amount
+FROM Employees e
+LEFT JOIN Orders o ON e.EmployeeID = o.CustomerID;

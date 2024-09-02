@@ -1,0 +1,13 @@
+INSERT INTO Employees (EmployeeID, FirstName, LastName, DateOfBirth, Department)
+VALUES (1, 'Alice', 'Johnson', '1990-01-15', 'HR');
+ 
+
+
+
+ INSERT INTO Orders (OrderID, OrderDate, CustomerID, Amount)
+VALUES 
+(1, '2024-09-01', 101, 250.50),
+(2, '2024-09-02', 102, 100.00),
+(3, '2024-09-03', 103, 75.75),
+(4, '2024-09-04', 104, 150.00),
+(5, '2024-09-05', 105, 200.25);

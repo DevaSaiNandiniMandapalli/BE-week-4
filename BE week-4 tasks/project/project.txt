@@ -1,0 +1,131 @@
+CREATE TABLE MenuItems (
+    ItemID INT PRIMARY KEY,
+    ItemName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2),
+    Available BOOLEAN
+);
+
+
+
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE,
+    Status VARCHAR(50),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Phone VARCHAR(15),
+    Email VARCHAR(100)
+);
+
+
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Position VARCHAR(50),
+    HireDate DATE
+);
+
+
+
+
+CREATE TABLE Reservations (
+    ReservationID INT PRIMARY KEY,
+    CustomerID INT,
+    ReservationDate DATE,
+    Status VARCHAR(50),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+
+
+
+INSERT INTO MenuItems (ItemID, ItemName, Category, Price, Available)
+VALUES 
+(1, 'Caesar Salad', 'Appetizers', 8.99, TRUE),
+(2, 'Grilled Chicken', 'Entrees', 12.99, TRUE),
+(3, 'Chocolate Cake', 'Desserts', 6.99, TRUE);
+
+
+
+
+INSERT INTO Orders (OrderID, CustomerID, OrderDate, Status)
+VALUES 
+(1, 101, '2024-09-01', 'Pending'),
+(2, 102, '2024-09-02', 'Completed');
+
+
+
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Phone, Email)
+VALUES 
+(101, 'John', 'Doe', '555-1234', 'john.doe@example.com'),
+(102, 'Jane', 'Smith', '555-5678', 'jane.smith@example.com');
+
+
+
+
+SELECT * FROM MenuItems
+WHERE Category = 'Appetizers';
+
+
+
+
+UPDATE Orders
+SET Status = 'Completed'
+WHERE OrderID = 1;
+
+
+
+
+DELETE FROM Reservations
+WHERE Status = 'Canceled';
+
+
+
+
+SELECT * FROM Orders
+WHERE CustomerID = 101 OR OrderDate = '2024-09-01';
+
+
+
+
+SELECT * FROM MenuItems
+WHERE (Price < 10 OR Category = 'Desserts') AND Available = TRUE;
+
+
+
+
+SELECT * FROM Orders
+ORDER BY OrderDate ASC;
+
+SELECT o.OrderID, c.FirstName, c.LastName, o.OrderDate
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerID = c.CustomerID
+ORDER BY c.LastName, c.FirstName;
+
+
+
+
+SELECT m.ItemName, COUNT(o.OrderID) AS TotalOrders
+FROM MenuItems m
+LEFT JOIN Orders o ON m.ItemID = o.CustomerID 
+GROUP BY m.ItemName;
+
+
+
+
+
+

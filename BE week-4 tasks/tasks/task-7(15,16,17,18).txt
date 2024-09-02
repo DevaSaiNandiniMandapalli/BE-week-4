@@ -1,0 +1,19 @@
+SELECT * FROM Employees
+WHERE Department = 'HR' AND DateOfBirth > '1990-01-01';
+
+
+
+SELECT * FROM Orders
+WHERE Amount > 300 AND OrderDate < '2023-01-01';
+
+
+
+
+SELECT * FROM Employees
+WHERE Department = 'HR' OR Department = 'Finance';
+
+
+
+
+SELECT * FROM Orders
+WHERE Amount < 100 OR OrderDate > '2023-01-01';

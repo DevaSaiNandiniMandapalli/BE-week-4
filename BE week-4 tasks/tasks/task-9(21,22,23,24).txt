@@ -1,0 +1,19 @@
+SELECT COUNT(*) AS NumberOfEmployees
+FROM Employees;
+
+
+
+SELECT COUNT(*) AS NumberOfOrders
+FROM Orders;
+
+
+
+
+SELECT AVG(Amount) AS AverageAmount
+FROM Orders;
+
+
+
+
+SELECT AVG(YEAR(CURDATE()) - YEAR(DateOfBirth)) AS AverageAge
+FROM Employees;

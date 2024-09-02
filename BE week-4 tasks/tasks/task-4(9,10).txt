@@ -1,0 +1,9 @@
+UPDATE Employees
+SET Department = 'Finance'
+WHERE EmployeeID = 1;
+
+
+
+UPDATE Orders
+SET Amount = 500.00
+WHERE OrderID = 2;
